@@ -9,7 +9,7 @@ https://github.com/yashgupta417/pr-assign-2.git
 ```
 Then, open the `model.ipynb` file using jupyter notebook and press run.
 
-##Code Summary
+## Code Summary
 
 In this code snippet, we are reading the dataset
 ```python
@@ -73,3 +73,29 @@ plt.ylabel("Error")
 plt.show()
 ```
 
+Plotting scatter plot along with cluster centers using seaborn.
+```python
+#scatter plot
+import seaborn as sns
+
+
+df_=df
+
+#evaluating whole data
+pred=models[3].predict(np.array(X))
+
+#mapping prediction
+pred=map_labels(pred,mappings[3])
+
+#creating center dataframe
+centers=models[3].cluster_centers_
+df_centers=pd.DataFrame(centers,columns=['sepal_length','sepal_width','petal_length','petal_width'])
+df_centers['class']='center'
+
+df_centers.head()
+
+#Appending center dataframe
+df_=df_.append(df_centers,ignore_index=True)        
+
+sns.pairplot(df_,hue='class')
+```
