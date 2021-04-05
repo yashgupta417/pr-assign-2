@@ -1,4 +1,4 @@
-# pr-assign-2
+# K-means Clustering on Iris dataset
 
 Applying k-means clustering on iris dataset. Used Elbow method to find out optimal K.
 
